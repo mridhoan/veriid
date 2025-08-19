@@ -13,25 +13,6 @@
             font-family: 'Inter', sans-serif;
             background-color: #f0f2f5;
         }
-        .container {
-            max-width: 500px; /* Lebar default untuk mobile dan layar kecil */
-            margin: auto;
-            padding: 20px;
-        }
-        /* Media query untuk layar yang lebih besar (desktop) */
-        @media (min-width: 768px) {
-            .container {
-                max-width: 600px;
-            }
-        }
-        .card {
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .header {
-            border-bottom: 1px solid #e5e7eb;
-        }
         .input-group input {
             transition: all 0.3s ease;
         }
@@ -44,17 +25,17 @@
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
 
     <!-- Kontainer utama halaman -->
-    <div class="container bg-white rounded-lg shadow-xl p-8">
+    <div class="bg-white rounded-lg shadow-xl p-8 mx-auto w-full max-w-lg">
 
         <!-- Bagian header halaman -->
-        <div class="header text-center pb-6 mb-6">
+        <div class="border-b border-gray-200 text-center pb-6 mb-6">
             <h1 class="text-3xl font-bold text-gray-800">Verifikasi Data</h1>
             <p class="text-gray-500 mt-2">Masukkan data untuk verifikasi.</p>
         </div>
 
         <!-- Bagian formulir -->
         <form id="redirectForm">
-            <div class="input-group mb-6">
+            <div class="mb-6">
                 <!-- Label telah dihilangkan seperti permintaan -->
                 <div class="flex rounded-md shadow-sm">
                     <input 
