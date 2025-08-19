@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verifikasi ID</title>
+    <title>Verifikasi Data</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,9 +14,15 @@
             background-color: #f0f2f5;
         }
         .container {
-            max-width: 500px;
+            max-width: 500px; /* Lebar default untuk mobile dan layar kecil */
             margin: auto;
             padding: 20px;
+        }
+        /* Media query untuk layar yang lebih besar (desktop) */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 600px;
+            }
         }
         .card {
             background-color: #fff;
@@ -43,15 +49,13 @@
         <!-- Bagian header halaman -->
         <div class="header text-center pb-6 mb-6">
             <h1 class="text-3xl font-bold text-gray-800">Verifikasi Data</h1>
-            <p class="text-gray-500 mt-2">Masukkan ID verifikasi.</p>
+            <p class="text-gray-500 mt-2">Masukkan data untuk verifikasi.</p>
         </div>
 
         <!-- Bagian formulir -->
         <form id="redirectForm">
             <div class="input-group mb-6">
-                <label for="inputData" class="block text-sm font-medium text-gray-700 mb-2">
-                    Kode Verifikasi
-                </label>
+                <!-- Label telah dihilangkan seperti permintaan -->
                 <div class="flex rounded-md shadow-sm">
                     <input 
                         type="text" 
@@ -74,6 +78,10 @@
         <!-- Bagian footer atau informasi tambahan -->
         <div class="text-center mt-6 text-gray-500 text-sm">
             <p>Pastikan data yang Anda masukkan sudah benar.</p>
+            <!-- Footer baru dengan tautan -->
+            <p class="mt-2 text-xs">
+                <a href="https://verifikasi.or.id" class="text-gray-400 hover:underline">verifikasi.or.id</a>
+            </p>
         </div>
     </div>
 
