@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Judul Artikel Anda — Verifikasi.or.id</title>
   <meta name="description" content="Ringkasan singkat artikel Anda di sini." />
+  
+  <!-- Tag SEO tambahan -->
+  <meta name="keywords" content="verifikasi, cek status, keamanan, identitas, portal resmi" />
+  <meta name="author" content="Tim Redaksi Verifikasi.or.id" />
+  
+  <!-- Tag Open Graph untuk berbagi di media sosial -->
+  <meta property="og:title" content="Judul Artikel Anda" />
+  <meta property="og:description" content="Ringkasan singkat artikel Anda di sini." />
+  <meta property="og:image" content="https://verifikasi.or.id/images/thumbnail-artikel.jpg" />
+  <meta property="og:url" content="https://verifikasi.or.id/artikel/judul-artikel-anda" />
+
   <style>
     :root{
       --blue-900:#0a2a66;
@@ -31,7 +42,7 @@
     .brand{display:flex;align-items:center;gap:14px}
     .brand a{
       text-decoration:none;
-      color:inherit; /* Memastikan warna teks tidak berubah */
+      color:inherit;
       display:flex;
       align-items:center;
       gap:14px;
@@ -55,12 +66,14 @@
       box-shadow:0 6px 18px rgba(0,0,0,.06);
       padding:24px;
     }
-    .article h2{
+    .article h1, .article h2, .article h3 {
       color:var(--blue-900);
       margin-top:0;
-      font-size:1.6rem;
     }
-    .article p{
+    .article h1{ font-size: 2rem; }
+    .article h2{ font-size: 1.6rem; margin-top: 1.5rem; }
+    .article h3{ font-size: 1.4rem; margin-top: 1.25rem; }
+    .article p, .article ul, .article ol{
       color:var(--gray-700);
       line-height:1.6;
     }
@@ -90,7 +103,6 @@
   <header role="banner">
     <div class="wrap">
       <div class="brand" aria-label="Identitas Portal">
-        <!-- Tambahkan tag <a> di sini -->
         <a href="index.html">
           <div class="crest" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -110,12 +122,17 @@
   <main class="content-area">
     <div class="wrap">
       <article class="article">
-        <h2>Judul Artikel di Sini</h2>
+        <h1>Judul Utama Artikel di Sini</h1>
         <p>
           Paragraf pertama dari artikel Anda. Masukkan konten Anda di sini. Anda bisa menjelaskan tentang pentingnya verifikasi, cara melindungi diri dari penipuan, atau berita terkait lainnya.
         </p>
+        <h2>Subjudul Penting</h2>
         <p>
-          Ganti teks ini dengan isi artikel yang ingin Anda publikasikan. Anda dapat menambahkan lebih banyak paragraf, daftar, atau gambar sesuai kebutuhan.
+          Paragraf ini menjelaskan poin-poin penting di bawah subjudul. Menggunakan subjudul membantu pembaca dan mesin pencari memindai dan memahami struktur artikel dengan cepat.
+        </p>
+        <h3>Sub-subjudul Detail</h3>
+        <p>
+          Anda bisa menggunakan heading yang lebih kecil untuk memecah informasi menjadi bagian-bagian yang lebih terperinci.
         </p>
         <p>
           Pastikan untuk mengganti judul di tag `<title>` dan deskripsi di tag `<meta name="description">` agar relevan dengan isi artikel Anda.
