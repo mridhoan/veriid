@@ -1,3 +1,4 @@
+<!-- Aplikasi -->
 <script>
 const q = document.getElementById('q');
 const btn = document.getElementById('cekBtn');
