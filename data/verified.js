@@ -1,18 +1,8 @@
-// data/verified.js
-const VERIFIED_DATA = {
-  "1234567890": {
-    name: "Budi Santoso",
-    status: "Terverifikasi",
-    info: "Penjual resmi terdaftar sejak 2022"
-  },
-  "9876543210": {
-    name: "Siti Aminah",
-    status: "Menunggu Verifikasi",
-    info: "Proses verifikasi sedang berlangsung"
-  },
-  "5555555555": {
-    name: "Joko Widodo",
-    status: "Tidak Terdaftar",
-    info: "ID tidak ditemukan dalam database"
-  }
-};
+<!-- Data dipisah (mock). Di produksi, pindahkan ke /data/verified.js dan muat sebelum app.js -->
+<script>
+window.VERIFIED_DATA = [
+{ id:"@toko_bagus", status:"verified", type:"username", lastChecked:"2025-08-18", proof:"KTP + Selfie", views:1245 },
+{ id:"081234567890", status:"pending", type:"phone", lastChecked:"2025-08-19", proof:"Dokumen diterima", views:78 },
+{ id:"namaid", status:"none", type:"name", lastChecked:"2025-08-10", proof:"—", views:0 }
+];
+</script>
