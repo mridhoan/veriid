@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Judul Artikel Anda — Verifikasi.or.id</title>
+  <meta name="description" content="Ringkasan singkat artikel Anda di sini." />
+  <style>
+    :root{
+      --blue-900:#0a2a66;
+      --blue-800:#123a82;
+      --blue-700:#1951a8;
+      --blue-100:#e9f2ff;
+      --gray-900:#0f172a;
+      --gray-700:#334155;
+      --gray-500:#64748b;
+      --gray-200:#e5e7eb;
+      --success:#157347;
+      --pending:#b7791f;
+      --danger:#b91c1c;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;background:#ffffff;color:var(--gray-900)}
+    /* Header ala portal resmi */
+    header{
+      border-bottom:4px solid #d62828;
+      background:linear-gradient(180deg,var(--blue-900),var(--blue-800));
+      color:#fff;
+    }
+    .wrap{max-width:1040px;margin:0 auto;padding:16px 20px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .crest{width:40px;height:40px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+    .crest svg{width:26px;height:26px}
+    .titles h1{margin:0;font-size:1.25rem;font-weight:800;letter-spacing:.2px}
+    .titles small{opacity:.9}
+    /* Content wrapper */
+    .content-area{
+      background:var(--blue-100);
+      border-bottom:1px solid var(--gray-200);
+      padding:32px 20px;
+    }
+    .article{
+      max-width:720px;
+      margin:0 auto;
+      background:#fff;
+      border:1px solid var(--gray-200);
+      border-radius:14px;
+      box-shadow:0 6px 18px rgba(0,0,0,.06);
+      padding:24px;
+    }
+    .article h2{
+      color:var(--blue-900);
+      margin-top:0;
+      font-size:1.6rem;
+    }
+    .article p{
+      color:var(--gray-700);
+      line-height:1.6;
+    }
+    /* Footer */
+    footer{border-top:1px solid var(--gray-200);background:#f8fafc}
+    footer .wrap{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center; /* Pusatkan konten footer */
+      gap:12px;
+      padding:18px 20px;
+      text-align: center;
+    }
+    .fine{
+      color:var(--gray-500);
+      font-size:.92rem;
+      flex-grow: 1; /* Biarkan elemen memenuhi ruang yang tersedia */
+    }
+    @media (max-width:600px){
+      .titles h1{font-size:1.1rem}
+      .article h2{font-size:1.35rem}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header role="banner">
+    <div class="wrap">
+      <div class="brand" aria-label="Identitas Portal">
+        <div class="crest" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2l6 2v6c0 5-3.5 9-6 10-2.5-1-6-5-6-10V4l6-2z" fill="#123a82" stroke="#123a82"/>
+            <path d="M12 5l.9 1.8 2 .3-1.45 1.4.34 2-1.79-.95-1.79.95.34-2L9.1 7.1l2-.3L12 5z" fill="#ffd166"/>
+          </svg>
+        </div>
+        <div class="titles">
+          <h1>Verifikasi.or.id</h1>
+          <small>Portal Cek Status Identitas — Resmi & Aman</small>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Main content area -->
+  <main class="content-area">
+    <div class="wrap">
+      <article class="article">
+        <h2>Judul Artikel di Sini</h2>
+        <p>
+          Paragraf pertama dari artikel Anda. Masukkan konten Anda di sini. Anda bisa menjelaskan tentang pentingnya verifikasi, cara melindungi diri dari penipuan, atau berita terkait lainnya.
+        </p>
+        <p>
+          Ganti teks ini dengan isi artikel yang ingin Anda publikasikan. Anda dapat menambahkan lebih banyak paragraf, daftar, atau gambar sesuai kebutuhan.
+        </p>
+        <p>
+          Pastikan untuk mengganti judul di tag `<title>` dan deskripsi di tag `<meta name="description">` agar relevan dengan isi artikel Anda.
+        </p>
+      </article>
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="wrap">
+      <div class="fine">© 2025 Verifikasi.or.id · Kebijakan privasi & keamanan diterapkan.</div>
+    </div>
+  </footer>
+</body>
+</html>
