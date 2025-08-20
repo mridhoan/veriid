@@ -53,6 +53,12 @@
     .btn:hover{background:#1b4f9e}
 
     .help{display:flex;align-items:center;gap:8px;color:var(--gray-700);font-size:.92rem;margin-top:10px}
+    .error-msg{
+      color: var(--danger);
+      font-size: 0.92rem;
+      margin-top: 10px;
+      display: none; /* Sembunyikan secara default */
+    }
 
     /* Results */
     .result{display:none;border-top:1px solid var(--gray-200);background:#fff}
@@ -127,6 +133,7 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#64748b"/><path d="M12 7v6" stroke="#64748b"/><circle cx="12" cy="16.5" r="1" fill="#64748b"/></svg>
             Data hanya digunakan untuk pengecekan. Privasi Anda terlindungi.
           </div>
+          <div class="error-msg" id="errorMsg"></div>
         </div>
         <div class="result" id="result" aria-live="polite">
           <div class="in">
@@ -184,51 +191,67 @@
 
   <!-- Aplikasi -->
   <script>
-    const q = document.getElementById('q');
-    const btn = document.getElementById('cekBtn');
-    const result = document.getElementById('result');
-    const idShown = document.getElementById('idShown');
-    const statusBadge = document.getElementById('statusBadge');
-    const meta = document.getElementById('meta');
+    // Pastikan DOM dimuat sepenuhnya sebelum menjalankan script.
+    document.addEventListener('DOMContentLoaded', () => {
+      const q = document.getElementById('q');
+      const btn = document.getElementById('cekBtn');
+      const result = document.getElementById('result');
+      const idShown = document.getElementById('idShown');
+      const statusBadge = document.getElementById('statusBadge');
+      const meta = document.getElementById('meta');
+      const errorMsg = document.getElementById('errorMsg');
 
-    function norm(v){ return (v||'').trim().toLowerCase(); }
-    function badge(status){
-      if(status==='verified') return ['Terverifikasi','ok'];
-      if(status==='pending') return ['Menunggu verifikasi','pend'];
-      return ['Tidak terdaftar','no'];
-    }
-
-    function findId(v){
-      const n = norm(v);
-      let item = window.VERIFIED_DATA.find(x=> norm(x.id)===n);
-      if(!item){ item = window.VERIFIED_DATA.find(x=> norm(x.id).includes(n)); }
-      return item;
-    }
-
-    function render(item, query){
-      result.style.display = 'block';
-      idShown.textContent = query || '—';
-      if(!item){
-        statusBadge.className = 'badge no';
-        statusBadge.textContent = 'Tidak terdaftar';
-        meta.innerHTML = 'ID tidak ditemukan dalam basis data kami. <a href="#" onclick="alert(\'Daftar verifikasi\')">Daftarkan ID Anda?</a>';
-        return;
+      function norm(v){ return (v || '').trim().toLowerCase(); }
+      function badge(status){
+        if(status === 'verified') return ['Terverifikasi', 'ok'];
+        if(status === 'pending') return ['Menunggu verifikasi', 'pend'];
+        return ['Tidak terdaftar', 'no'];
       }
-      const [txt, cls] = badge(item.status);
-      statusBadge.className = `badge ${cls}`;
-      statusBadge.textContent = txt;
-      const typeLabel = item.type==='phone' ? 'Nomor telepon' : (item.type==='username' ? 'Username' : 'Nama');
-      meta.innerHTML = `Jenis: <b>${typeLabel}</b> · Terakhir dicek: <b>${item.lastChecked}</b> · Bukti: <b>${item.proof}</b> · Total pengecekan: <b>${item.views.toLocaleString('id-ID')}</b>`;
-    }
 
-    function cek(){
-      const v = q.value;
-      if(!v){ alert('Masukkan ID/username/no. telp terlebih dahulu.'); return; }
-      render(findId(v), v);
-    }
+      function findId(v){
+        const n = norm(v);
+        // Cek kecocokan persis terlebih dahulu
+        let item = window.VERIFIED_DATA.find(x => norm(x.id) === n);
+        // Jika tidak ada kecocokan persis, cari yang mengandung string tersebut
+        if(!item){
+          item = window.VERIFIED_DATA.find(x => norm(x.id).includes(n));
+        }
+        return item;
+      }
 
-    btn.addEventListener('click', cek);
-    q.addEventListener('keydown', e=>{ if(e.key==='Enter') cek(); });
+      function render(item, query){
+        // Sembunyikan pesan error jika ada hasil
+        errorMsg.style.display = 'none';
+        result.style.display = 'block';
+        idShown.textContent = query || '—';
+        if(!item){
+          statusBadge.className = 'badge no';
+          statusBadge.textContent = 'Tidak terdaftar';
+          meta.innerHTML = 'ID tidak ditemukan dalam basis data kami. <a href="#" onclick="alert(\'Daftar verifikasi\')">Daftarkan ID Anda?</a>';
+          return;
+        }
+        const [txt, cls] = badge(item.status);
+        statusBadge.className = `badge ${cls}`;
+        statusBadge.textContent = txt;
+        const typeLabel = item.type === 'phone' ? 'Nomor telepon' : (item.type === 'username' ? 'Username' : 'Nama');
+        meta.innerHTML = `Jenis: <b>${typeLabel}</b> · Terakhir dicek: <b>${item.lastChecked}</b> · Bukti: <b>${item.proof}</b> · Total pengecekan: <b>${item.views.toLocaleString('id-ID')}</b>`;
+      }
+
+      function cek(){
+        const v = q.value;
+        if(!v){
+          // Tampilkan pesan error jika input kosong
+          errorMsg.textContent = 'Masukkan ID/username/no. telp terlebih dahulu.';
+          errorMsg.style.display = 'block';
+          result.style.display = 'none'; // Sembunyikan hasil
+          return;
+        }
+        render(findId(v), v);
+      }
+
+      btn.addEventListener('click', cek);
+      q.addEventListener('keydown', e => { if(e.key === 'Enter') cek(); });
+    });
   </script>
 </body>
 </html>
