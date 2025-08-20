@@ -164,10 +164,30 @@
       </div>
     </div>
   </footer>
-  <!-- Data dipisah dan dimuat dari file eksternal -->
-  <script src="data/verified.js"></script>
   <!-- Aplikasi utama -->
   <script>
+    // URL file JSON data
+    const DATA_URL = 'data.json';
+
+    let VERIFIED_DATA = [];
+
+    // Ambil data dari file JSON saat halaman dimuat
+    fetch(DATA_URL)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Jaringan bermasalah atau file tidak ditemukan.');
+        }
+        return response.json();
+      })
+      .then(data => {
+        VERIFIED_DATA = data;
+        console.log('Data berhasil dimuat.');
+      })
+      .catch(error => {
+        console.error('Ada masalah dengan operasi fetch:', error);
+        alert('Gagal memuat data verifikasi. Silakan coba lagi nanti.');
+      });
+
     const q = document.getElementById('q');
     const btn = document.getElementById('cekBtn');
     const result = document.getElementById('result');
@@ -184,8 +204,7 @@
 
     function findId(v){
       const n = norm(v);
-      // Perubahan: Hanya lakukan pencarian dengan kecocokan persis.
-      return window.VERIFIED_DATA.find(x=> norm(x.id)===n);
+      return VERIFIED_DATA.find(x=> norm(x.id)===n);
     }
 
     function render(item, query){
@@ -202,7 +221,6 @@
       statusBadge.textContent = txt;
       const typeLabel = item.type==='phone' ? 'Nomor telepon' : (item.type==='username' ? 'Username' : 'Nama');
       const profileLink = `https://verifikasi.or.id/${encodeURIComponent(item.id)}`;
-      // Perubahan: Tautan "Lihat Profil"
       meta.innerHTML = `Jenis: <b>${typeLabel}</b> · Terakhir dicek: <b>${item.lastChecked}</b> · Bukti: <b>${item.proof}</b> · <b><a href="${profileLink}" target="_blank">Lihat Profil</a></b>`;
     }
 
