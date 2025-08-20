@@ -95,7 +95,7 @@
         </div>
         <div class="titles">
           <h1>Verifikasi.or.id</h1>
-          <small>Portal Cek Status Identitas — Resmi & Aman</small>
+          <small>Portal Cek Status ID — Resmi & Aman</small>
         </div>
       </div>
     </div>
@@ -104,12 +104,12 @@
   <section class="hero" aria-labelledby="judul">
     <div class="wrap">
       <h2 id="judul">Cek status verifikasi ID/username/nomor telepon</h2>
-      <p>Masukkan ID yang ingin Anda periksa. Kami menampilkan status ringkas: <b>Terverifikasi</b>, <b>Menunggu</b>, atau <b>Tidak Terdaftar</b> — tanpa data sensitif.</p>
+      <p>Masukkan ID yang ingin Anda periksa. Akan menampilkan status ringkas: <b>Terverifikasi</b>, <b>Menunggu</b>, atau <b>Tidak Terdaftar</b> — tanpa data sensitif.</p>
       <div class="card" role="search" aria-label="Form pencarian status">
         <div class="in">
           <div class="searchrow">
             <label class="input" aria-label="Kolom input ID">
-              <input id="q" placeholder="Contoh: @toko_bagus, 0812-3456-7890, namaid" autocomplete="off" />
+              <input id="q" placeholder="Contoh: @toko_bagus, 0812, namaid" autocomplete="off" />
             </label>
             <button class="btn" id="cekBtn" aria-label="Cek status sekarang">Cek Sekarang</button>
           </div>
@@ -153,13 +153,13 @@
       <div class="step"><b>1) Cari</b> Ketik ID/username/no. telp lalu klik Cek.</div>
       <div class="step"><b>2) Cocokkan</b> Sistem mencocokkan ID dengan basis data terverifikasi yang diperbarui berkala.</div>
       <div class="step"><b>3) Hasil Cepat</b> Tampilkan status ringkas tanpa membuka detail sensitif.</div>
-      <div class="step"><b>4) Daftar</b> Belum terverifikasi? Daftarkan ID Anda untuk meningkatkan kepercayaan.</div>
+      <div class="step"><b>4) Daftar</b> Belum terverifikasi? Dapatkan ID Anda untuk meningkatkan kepercayaan.</div>
     </div>
   </section>
   <!-- Footer -->
   <footer role="contentinfo">
     <div class="wrap">
-      <div class="fine">© 2025 Verifikasi.or.id · Portal resmi pemeriksaan status identitas. Kebijakan privasi & keamanan diterapkan.</div>
+      <div class="fine">© 2025 Verifikasi.or.id · Portal resmi pemeriksaan status ID. Kebijakan privasi & keamanan diterapkan.</div>
       <div class="cta">
         <span>Belum terverifikasi?</span>
         <button class="btn" onclick="alert('Form pendaftaran akan tersedia.')">Daftar Verifikasi</button>
@@ -173,7 +173,7 @@
 
     let VERIFIED_DATA = [];
 
-    // Ambil data dari file JSON saat halaman dimuat
+    // data file JSON
     fetch(DATA_URL)
       .then(response => {
         if (!response.ok) {
