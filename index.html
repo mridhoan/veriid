@@ -38,7 +38,7 @@
     /* Hero / funnel */
     .hero{background:var(--blue-100);border-bottom:1px solid var(--gray-200)}
     .hero .wrap{padding:32px 20px}
-    .hero h2{margin:0 0 10px 0;color:var(--blue-900);font-size:1.6rem}
+    .hero h2{margin:0 0 10px 0;color:var(--balue-900);font-size:1.6rem}
     .hero p{margin:0;color:var(--gray-700)}
     /* Search card */
     .card{max-width:720px;margin:18px auto 0;background:#fff;border:1px solid var(--gray-200);border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
@@ -71,7 +71,14 @@
     .step b{display:block;color:var(--blue-900);margin-bottom:6px}
     /* Footer */
     footer{border-top:1px solid var(--gray-200);background:#f8fafc}
-    footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:18px 20px}
+    footer .wrap{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      gap:12px;
+      padding:18px 20px;
+      align-items:center;
+    }
     .cta{display:flex;gap:10px;align-items:center}
     .cta .btn{background:var(--blue-700)}
     .fine{color:var(--gray-500);font-size:.92rem}
@@ -158,14 +165,14 @@
   </section>
   <!-- Footer -->
   <footer role="contentinfo">
-    <div class="wrap">
-      <div class="fine">© 2025 Verifikasi.or.id · Portal resmi pemeriksaan status ID. Kebijakan privasi & keamanan diterapkan.</div>
-      <div class="cta">
-        <span>Belum terverifikasi?</span>
-        <button class="btn" onclick="alert('Form pendaftaran akan tersedia.')">Daftar Verifikasi</button>
-      </div>
-    </div>
-  </footer>
+    <div class="wrap">
+      <div class="fine">© 2025 Verifikasi.or.id · Portal resmi pemeriksaan status ID. Kebijakan privasi & keamanan diterapkan.</div>
+      <div class="cta">
+        <span>Belum terverifikasi?</span>
+        <button class="btn" onclick="window.location.href = '/daftar'">Daftar Verifikasi</button>
+      </div>
+    </div>
+  </footer>
   <!-- Aplikasi utama -->
   <script>
     // URL file JSON data
@@ -215,7 +222,7 @@
       if(!item){
         statusBadge.className = 'badge no';
         statusBadge.textContent = 'Tidak terdaftar';
-        meta.innerHTML = 'ID tidak ditemukan dalam basis data kami. <a href="daftar" onclick="alert(\'Daftar verifikasi\')">Daftarkan ID Anda?</a>';
+        meta.innerHTML = 'ID tidak ditemukan dalam basis data kami. <a href="daftar" onclick="window.location.href = \'/daftar\'">Daftarkan ID Anda?</a>';
         return;
       }
       const [txt, cls] = badge(item.status);
