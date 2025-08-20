@@ -215,7 +215,7 @@
       if(!item){
         statusBadge.className = 'badge no';
         statusBadge.textContent = 'Tidak terdaftar';
-        meta.innerHTML = 'ID tidak ditemukan dalam basis data kami. <a href="https://verifikasi.or.id/" onclick="alert(\'Daftar verifikasi\')">Daftarkan ID Anda?</a>';
+        meta.innerHTML = 'ID tidak ditemukan dalam basis data kami. <a href="daftar" onclick="alert(\'Daftar verifikasi\')">Daftarkan ID Anda?</a>';
         return;
       }
       const [txt, cls] = badge(item.status);
